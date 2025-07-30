@@ -34,13 +34,6 @@ app.get('{*any}', async (req, res) => {
 
 app.post('{*any}', async (req, res) => {
 
-  console.log('--- PROXY POST REQUEST ---');
-  console.log('Path:', req.path);
-  console.log('Body:', JSON.stringify(req.body, null, 2));
-  console.log('Query:', req.query);
-  console.log('Headers:', JSON.stringify(req.headers, null, 2));
-  console.log('--------------------------');
-
   try {
     const response = await axios.post(`${WC_API}${req.path}`, req.body, {
       params: req.query,
